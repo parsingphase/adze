@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Default Adze site active{% endblock %}
+
+{% block content %}
+    <h1>Adze site operational</h1>
+
+    <p>To replace this content, edit web/index.php to set a new root for the "/" path and load other Modules and
+        Controllers.</p>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="well well-sm text-center">
+        Loaded: {{ time|date("H:i:s") }}
+    </div>
+
+    {{ parent() }}
+{% endblock %}
