@@ -1,3 +1,6 @@
 .idea
 vendor
 build
+composer.lock
+components
+empty.sqlite.tmp
