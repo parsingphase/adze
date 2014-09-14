@@ -343,7 +343,7 @@ class Application extends SilexApplication
     {
         // Set site own template path (last in list; everything else gets a chance to get there first);
         $this->getTwigFilesystemLoader()->addPath(
-            dirname(dirname(dirname(__DIR__))) . '/templates/unconfigured-site'
+            dirname(dirname(dirname(__DIR__))) . '/templates/site'
         );
     }
 }

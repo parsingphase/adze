@@ -1,3 +1,5 @@
-## THIS PROBABLY DOESN'T WORK YET!
+## parsingphase/adze
 
-Check back in 48 hours!
+Silex-based framework for website development.
+
+See [parsingphase/adze-base-site](https://github.com/parsingphase/adze-base-site) for a default deployment environment.
