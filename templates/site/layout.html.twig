@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><title>{% block title %}Default Adze site active{% endblock %}</title>
-    <!--suppress HtmlUnknownTarget -->
-    <link type="text/css" media="all" rel="stylesheet"
-          href="/resources/components/bootstrap/css/bootstrap.min.css"/>
-    <!--suppress HtmlUnknownTarget -->
-    <link type="text/css" media="all" rel="stylesheet"
-          href="/adze-resources/adze.css"/>
-
+    {% block headerLinks %}
+        <!--suppress HtmlUnknownTarget -->
+        <link type="text/css" media="all" rel="stylesheet"
+              href="/resources/components/bootstrap/css/bootstrap.min.css"/>
+        <!--suppress HtmlUnknownTarget -->
+        <link type="text/css" media="all" rel="stylesheet"
+              href="/resources/parsingphase/adze/adze.css"/>
+    {% endblock %}
 </head>
 <body>
 <div class="container">

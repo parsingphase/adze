@@ -360,8 +360,12 @@ class Application extends SilexApplication
     public function addDefaultTemplatePath()
     {
         // Set site own template path (last in list; everything else gets a chance to get there first);
+        $moduleBasedir = dirname(dirname(dirname(__DIR__)));
         $this->getTwigFilesystemLoader()->addPath(
-            dirname(dirname(dirname(__DIR__))) . '/templates/site'
+            $moduleBasedir . '/templates/site'
         );
+
+        //Todo either rename this function or move the frontend resource setup to own function
+        $this->getResourceController()->addPathMapping('parsingphase/adze', $moduleBasedir . '/resources');
     }
 }
