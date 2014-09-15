@@ -54,26 +54,5 @@ $userCustomFields->setPrimaryKey(['user_id', 'attribute']);
 $userCustomFields->addColumn('value', Type::STRING)->setLength(255);
 
 $tables['user_custom_fields'] = $userCustomFields;
-/*
- * CREATE TABLE `blog_post` (
-  `id` integer PRIMARY KEY AUTOINCREMENT,
-  `time` text NOT NULL,
-  `subject` text NOT NULL,
-  `body` text NOT NULL,
-  `security` text NOT NULL
-  );
-
- */
-
-$blogPost = new Table('blog_post');
-$blogPost->addColumn('id', Type::INTEGER, ['unsigned' => true, 'autoincrement' => true]);
-$blogPost->setPrimaryKey(['id']);
-$blogPost->addColumn('time', Type::DATETIME)->setNotnull(true); // see if sqlite handles this?
-$blogPost->addColumn('subject', Type::STRING)->setLength(255)->setNotnull(true);
-$blogPost->addColumn('body', Type::TEXT)->setNotnull(true);
-$blogPost->addColumn('security', Type::STRING)->setNotnull(true); //TODO Enums not supported, use ints / class consts?
-
-$tables['blog_post'] = $blogPost;
-
 
 return $tables;
