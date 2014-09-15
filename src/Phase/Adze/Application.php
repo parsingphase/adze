@@ -361,8 +361,11 @@ class Application extends SilexApplication
     {
         // Set site own template path (last in list; everything else gets a chance to get there first);
         $moduleBasedir = dirname(dirname(dirname(__DIR__)));
-        $this->getTwigFilesystemLoader()->addPath(
-            $moduleBasedir . '/templates/site'
+        $this->getTwigFilesystemLoader()->prependPath(
+            $moduleBasedir . '/templates/site' // allows us to explicitly call 'default/template.html.twig' etc
+        );
+        $this->getTwigFilesystemLoader()->prependPath(
+            $moduleBasedir . '/templates/site/default'
         );
 
         //Todo either rename this function or move the frontend resource setup to own function

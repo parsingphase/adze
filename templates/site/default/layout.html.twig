@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>{% block title %}{% block pageTitle %}Default Adze site active{% endblock %}{% endblock %}</title>
+    {% block headerLinks %}
+        <!--suppress HtmlUnknownTarget -->
+        <link type="text/css" media="all" rel="stylesheet"
+              href="/resources/components/bootstrap/css/bootstrap.min.css"/>
+        <!--suppress HtmlUnknownTarget -->
+        <link type="text/css" media="all" rel="stylesheet"
+              href="/resources/parsingphase/adze/adze.css"/>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+    <div class="container">
+        {% block container %}
+            <div class="col-sm-9 adze-main-column">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <div class="col-sm-3 adze-sidebar">
+                {% block sidebar %}
+                    <div class="well well-sm text-center">
+                        {% if app.user %}
+                            <p>Logged in as {{ app.user.name }} {% if is_granted('ROLE_ADMIN') %}(ADMIN){% endif %}</p>
+                            <p><a href="{{ path('user.logout') }}">Logout</a></p>
+                        {% else %}
+                            <p>Anonymous user</p>
+                            <p><a href="{{ path('user.login') }}">Login</a></p>
+                        {% endif %}
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+</body>
+</html>
