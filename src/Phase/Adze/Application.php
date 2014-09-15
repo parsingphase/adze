@@ -164,8 +164,7 @@ class Application extends SilexApplication
 
         $this->register(
             new TwigServiceProvider(),
-            isset($this['twig.cache.dir']) ?
-                ['twig.options' => ['cache' => $this['twig.cache.dir']]] : []
+            isset($this['twig.cache.dir']) ? ['twig.options' => ['cache' => $this['twig.cache.dir']]] : []
         );
         /*
         $this['twig'] = $this->share(
