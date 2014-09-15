@@ -26,6 +26,7 @@ use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use SimpleUser\UserManager;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -162,7 +163,8 @@ class Application extends SilexApplication
 
         $this->register(
             new TwigServiceProvider(),
-            ['twig.options' => array('cache' => $this['twig.cache.dir'])]
+            isset($this['twig.cache.dir']) ?
+                ['twig.options' => ['cache' => $this['twig.cache.dir']]] : []
         );
         /*
         $this['twig'] = $this->share(
@@ -293,6 +295,13 @@ class Application extends SilexApplication
         return $this['session'];
     }
 
+    /**
+     * @return UserManager
+     */
+    public function getUserManager()
+    {
+        return $this['user.manager'];
+    }
 
     /**
      * Convenience method to show *something* at '/'
