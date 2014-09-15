@@ -26,6 +26,7 @@ use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use SimpleUser\User;
 use SimpleUser\UserManager;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\Request;
@@ -293,6 +294,14 @@ class Application extends SilexApplication
     public function getSession()
     {
         return $this['session'];
+    }
+
+    /**
+     * @return User
+     */
+    public function getCurrentUser()
+    {
+        return $this['user'];
     }
 
     /**
