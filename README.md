@@ -1,4 +1,4 @@
-# parsingphase/adze
+# parsingphase/adze [![Build Status](https://travis-ci.org/parsingphase/adze.svg?branch=master)](https://travis-ci.org/parsingphase/adze)
 
 Silex-based framework for website development.
 
