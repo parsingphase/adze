@@ -10,7 +10,7 @@ namespace Phase\Adze;
 
 use Silex\Route as SilexRoute;
 
-class Route
+class Route extends SilexRoute
 {
     use SilexRoute\SecurityTrait;
 }

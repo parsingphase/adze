@@ -70,6 +70,12 @@ class Application extends SilexApplication
         return $app;
     }
 
+    public function __construct(array $values = array())
+    {
+        parent::__construct($values);
+        $this['route_class'] = '\\Phase\\Adze\\Route';
+    }
+
     /**
      * Set application configuration values from an associative array
      *
