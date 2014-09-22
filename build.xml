@@ -4,6 +4,7 @@
     <target name="build"
             description="Build for run only (no tests)"
             >
+        <delete file="${basedir}/composer.lock" quiet="true"/>
         <exec executable="composer" dir="${basedir}" failonerror="true">
             <arg value="install"/>
             <arg value="--no-dev"/>
@@ -13,6 +14,7 @@
     <target name="build-dev"
             description="Build with dev environment"
             >
+        <delete file="${basedir}/composer.lock" quiet="true"/>
         <exec executable="composer" dir="${basedir}" failonerror="true">
             <arg value="install"/>
         </exec>
