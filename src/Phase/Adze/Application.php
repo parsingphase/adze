@@ -172,18 +172,8 @@ class Application extends SilexApplication
             new TwigServiceProvider(),
             isset($this['twig.cache.dir']) ? ['twig.options' => ['cache' => $this['twig.cache.dir']]] : []
         );
-        /*
-        $this['twig'] = $this->share(
-            $this->extend(
-                'twig',
-                function ($twig, $app) {
-                    // add custom globals, filters, tags, ...
 
-                    return $twig;
-                }
-            )
-        );
-        */
+        $this->register(new TwigExtensionsServiceProvider());
 
         $this->resourceController = new ResourcesControllerProvider();
         $this->mount('/resources', $this->resourceController);
