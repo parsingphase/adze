@@ -58,7 +58,9 @@ class UserServiceProvider extends SimpleUserServiceProvider
         parent::boot($app);
         $app = AdzeApplication::assertAdzeApplication($app);
         //prepend our own template path for user templates
-        $app->getTwigFilesystemLoader()->prependPath($moduleRoot . '/templates/user', 'user');
+        $app->getTwigFilesystemLoader()->addPath($moduleRoot . '/templates/user/default', 'user');
+        //Identify parent path so that we can refer directly to @user/default if required
+        $app->getTwigFilesystemLoader()->addPath($moduleRoot . '/templates/user', 'user');
     }
 
 
